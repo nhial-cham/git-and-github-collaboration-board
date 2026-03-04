@@ -1,0 +1,215 @@
+@import url("variables.css");
+
+/* =============================
+RESET
+============================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(to bottom right, var(--bg), var(--surface));
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2.4rem 1.6rem;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    /* 16px base */
+}
+
+/* =============================
+HEADER
+============================= */
+
+header {
+    text-align: center;
+    margin-bottom: 3.2rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.4rem;
+}
+
+/* =============================
+SECTIONS
+============================= */
+
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+}
+
+/* =============================
+GRID SYSTEM (Mobile First)
+============================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* =============================
+INSTRUCTOR (Always Centered)
+============================= */
+
+.instructor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructor .cards {
+    width: 100%;
+    max-width: 50rem;
+}
+
+/* =============================
+STUDENTS
+============================= */
+
+.students {
+    overflow-y: visible;
+    max-height: none;
+}
+
+/* =============================
+CARD
+============================= */
+
+article {
+    background: var(--card);
+    border: 0.1rem solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+article:hover {
+    transform: translateY(-0.4rem);
+    border-color: var(--primary);
+}
+
+article h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.6rem;
+}
+
+.role {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+}
+
+article ul {
+    list-style: none;
+}
+
+article li {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+}
+
+/* =============================
+ROLE VARIANTS
+============================= */
+
+.instructor-card .role {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.student-card .role {
+    background: var(--success-soft);
+    color: var(--success);
+}
+
+/* =============================
+FOOTER
+============================= */
+
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+}
+
+/* =============================
+RESPONSIVE BREAKPOINTS
+============================= */
+
+/* -------- Tablet -------- */
+@media (min-width: 64rem) {
+    /* 640px */
+
+    body {
+        padding: 4rem 3.2rem;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .students {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.4rem;
+    }
+
+    .instructor .cards {
+        max-width: 55rem;
+    }
+}
+
+/* -------- Desktop -------- */
+@media (min-width: 102.4rem) {
+    /* 1024px */
+
+    .students {
+        grid-template-columns: repeat(3, 1fr);
+        max-height: 60rem;
+        overflow-y: auto;
+        padding-right: 0.8rem;
+    }
+
+    .students::-webkit-scrollbar {
+        width: 0.8rem;
+    }
+
+    .students::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 0.8rem;
+    }
+
+    .instructor .cards {
+        max-width: 60rem;
+    }
+}
